@@ -1,28 +1,29 @@
+import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import CaseOverview from './components/CaseOverview';
-import CopyrightInfo from './components/CopyrightInfo';
-import Arguments from './components/Arguments';
-import LegalAnalysis from './components/LegalAnalysis';
-import Examples from './components/Examples';
-import AuthorSection from './components/AuthorSection';
 import Footer from './components/Footer';
+import Home from './pages/Home';
+import Products from './pages/Products';
+import ProductDetail from './pages/ProductDetail';
+import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
+import About from './pages/About';
 
 function App() {
     return (
-        <div className="font-sans antialiased selection:bg-blue-300 selection:text-blue-900 dark:selection:bg-blue-700 dark:selection:text-white">
+        <div className="min-h-screen bg-slate-50 dark:bg-slate-950 font-sans transition-colors duration-300">
             <Navbar />
 
             <main>
-                <Hero />
-                <CaseOverview />
-                <CopyrightInfo />
-                <Arguments />
-                <LegalAnalysis />
-                <Examples />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/products" element={<Products />} />
+                    <Route path="/product/:id" element={<ProductDetail />} />
+                    <Route path="/cart" element={<Cart />} />
+                    <Route path="/checkout" element={<Checkout />} />
+                    <Route path="/about" element={<About />} />
+                </Routes>
             </main>
 
-            <AuthorSection />
             <Footer />
         </div>
     );
